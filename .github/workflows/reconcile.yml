@@ -95,10 +95,11 @@ jobs:
           terraform output -json applied_commits > ../previous.json 2>/dev/null || echo '{}' > ../previous.json
           terraform plan -input=false -out=tfplan
           terraform show -json tfplan > ../plan.json
+          terraform show -no-color tfplan > ../plan.txt
 
       - name: Summarise
         id: summary
-        run: python3 org-terraform/scripts/summary.py plan.json previous.json commits.json "$GITHUB_REPOSITORY_OWNER" >> "$GITHUB_STEP_SUMMARY"
+        run: python3 org-terraform/scripts/summary.py plan.json plan.txt previous.json commits.json "$GITHUB_REPOSITORY_OWNER" >> "$GITHUB_STEP_SUMMARY"
 
       - if: steps.summary.outputs.changes == 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
