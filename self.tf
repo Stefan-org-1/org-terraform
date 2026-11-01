@@ -1,5 +1,5 @@
 # org-terraform's own environments. Both hold the org-admin App key and accept runs only from main.
-# plan: read-only tokens, no approval. apply: write tokens, after a platform member approves.
+# plan: no approval. apply: after a member of group-org-approvers approves. Admins cannot skip it.
 
 resource "github_repository_environment" "terraform_plan" {
   repository  = github_repository.repo["org-terraform"].name
@@ -15,8 +15,13 @@ resource "github_repository_environment" "terraform_apply" {
   repository  = github_repository.repo["org-terraform"].name
   environment = "apply"
 
+  # Off, so an admin cannot skip approval from the run page. Turning it back on is a settings
+  # change that shows in the org audit log.
+  can_admins_bypass = false
+
+  # In a real org also set prevent_self_review = true. This lab has one approver.
   reviewers {
-    teams = [github_team.team["team-platform"].id]
+    teams = [github_team.group["group-org-approvers"].id]
   }
 
   deployment_branch_policy {
