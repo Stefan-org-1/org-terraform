@@ -1,0 +1,164 @@
+name: reconcile
+
+# Plans the org from the latest main of org-manifest, org-policy and org-terraform, then waits.
+# A platform member reviews the plan in the run summary and approves the apply job, which applies
+# exactly that saved plan. If anything changed in between, Terraform refuses the stale plan and
+# the next run makes a new one.
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One plan or apply at a time. A newer run waits; GitHub keeps only the newest waiting run, which
+# is fine because every run uses the latest main.
+concurrency:
+  group: terraform
+  cancel-in-progress: false
+
+env:
+  TF_VERSION: 1.17.1
+  TF_IN_AUTOMATION: "1"
+  TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    environment: plan
+    outputs:
+      changes: ${{ steps.summary.outputs.changes }}
+      org-terraform: ${{ steps.commits.outputs.org-terraform }}
+      org-manifest: ${{ steps.commits.outputs.org-manifest }}
+      org-policy: ${{ steps.commits.outputs.org-policy }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          path: org-terraform
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/org-manifest
+          ref: main
+          path: org-manifest
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/org-policy
+          ref: main
+          path: org-policy
+          persist-credentials: false
+
+      - name: Record commits
+        id: commits
+        run: |
+          python3 - <<'EOF'
+          import json, os, subprocess
+          commits = {r: subprocess.check_output(["git", "-C", r, "rev-parse", "HEAD"], text=True).strip()
+                     for r in ("org-terraform", "org-manifest", "org-policy")}
+          json.dump(commits, open("commits.json", "w"))
+          json.dump({"commits": commits}, open("org-terraform/commits.auto.tfvars.json", "w"))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.writelines(f"{r}={sha}\n" for r, sha in commits.items())
+          EOF
+
+      - name: Install Terraform
+        run: |
+          cd "$RUNNER_TEMP"
+          curl -fsSLO "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
+          curl -fsSLO "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_SHA256SUMS"
+          grep "linux_amd64.zip" "terraform_${TF_VERSION}_SHA256SUMS" | sha256sum -c -
+          unzip -q "terraform_${TF_VERSION}_linux_amd64.zip" -d "$RUNNER_TEMP/bin"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+
+      # Read-only: planning must never be able to change the org.
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        id: app
+        with:
+          client-id: ${{ vars.ORG_ADMIN_CLIENT_ID }}
+          private-key: ${{ secrets.ORG_ADMIN_APP_KEY }}
+          owner: ${{ github.repository_owner }}
+          permission-administration: read
+          permission-environments: read
+          permission-members: read
+          permission-organization-administration: read
+
+      - name: Plan
+        working-directory: org-terraform
+        env:
+          GITHUB_TOKEN: ${{ steps.app.outputs.token }}
+        run: |
+          terraform init -input=false
+          terraform output -json applied_commits > ../previous.json 2>/dev/null || echo '{}' > ../previous.json
+          terraform plan -input=false -out=tfplan
+          terraform show -json tfplan > ../plan.json
+
+      - name: Summarise
+        id: summary
+        run: python3 org-terraform/scripts/summary.py plan.json previous.json commits.json "$GITHUB_REPOSITORY_OWNER" >> "$GITHUB_STEP_SUMMARY"
+
+      - if: steps.summary.outputs.changes == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: tfplan
+          path: org-terraform/tfplan
+          retention-days: 7
+
+  apply:
+    needs: plan
+    if: needs.plan.outputs.changes == 'true'
+    runs-on: ubuntu-latest
+    environment: apply
+    steps:
+      # The exact commits the plan used, not whatever main is now.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.plan.outputs.org-terraform }}
+          path: org-terraform
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/org-manifest
+          ref: ${{ needs.plan.outputs.org-manifest }}
+          path: org-manifest
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/org-policy
+          ref: ${{ needs.plan.outputs.org-policy }}
+          path: org-policy
+          persist-credentials: false
+
+      - name: Install Terraform
+        run: |
+          cd "$RUNNER_TEMP"
+          curl -fsSLO "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
+          curl -fsSLO "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_SHA256SUMS"
+          grep "linux_amd64.zip" "terraform_${TF_VERSION}_SHA256SUMS" | sha256sum -c -
+          unzip -q "terraform_${TF_VERSION}_linux_amd64.zip" -d "$RUNNER_TEMP/bin"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        id: app
+        with:
+          client-id: ${{ vars.ORG_ADMIN_CLIENT_ID }}
+          private-key: ${{ secrets.ORG_ADMIN_APP_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: tfplan
+          path: org-terraform
+
+      - name: Apply the reviewed plan
+        working-directory: org-terraform
+        env:
+          GITHUB_TOKEN: ${{ steps.app.outputs.token }}
+        run: |
+          terraform init -input=false
+          terraform apply -input=false tfplan
