@@ -45,6 +45,18 @@ resource "github_repository_ruleset" "baseline" {
         integration_id = local.gate_app_id
       }
     }
+
+    # Opt in per repo with code_owner_review: true. GitHub then enforces CODEOWNERS on PRs.
+    dynamic "pull_request" {
+      for_each = lookup(each.value, "code_owner_review", false) ? [1] : []
+      content {
+        required_approving_review_count   = 1
+        require_code_owner_review         = true
+        dismiss_stale_reviews_on_push     = true
+        require_last_push_approval        = true
+        required_review_thread_resolution = false
+      }
+    }
   }
 }
 
