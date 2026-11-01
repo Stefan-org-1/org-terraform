@@ -1,5 +1,6 @@
 locals {
-  gate_app_id = 5543165
+  gate_app_id    = 5543165
+  actions_app_id = 15368 # GitHub Actions
 
   active_repos = { for name, r in local.repos : name => r if r.status == "active" }
 
@@ -43,6 +44,15 @@ resource "github_repository_ruleset" "baseline" {
       required_check {
         context        = "policy"
         integration_id = local.gate_app_id
+      }
+
+      # Extra checks a repo requires, from GitHub Actions.
+      dynamic "required_check" {
+        for_each = lookup(each.value, "required_checks", [])
+        content {
+          context        = required_check.value
+          integration_id = local.actions_app_id
+        }
       }
     }
 
