@@ -31,6 +31,11 @@ resource "github_team" "team" {
 
   name    = each.key
   privacy = "closed"
+
+  # Deleting a team removes its access everywhere. Allowing it means editing this code.
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_team" "group" {
@@ -39,6 +44,10 @@ resource "github_team" "group" {
   name        = each.key
   description = each.value.description
   privacy     = "closed"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_repository" "repo" {
@@ -88,6 +97,10 @@ resource "github_team" "role" {
   name           = each.key
   parent_team_id = github_team.group[each.value.group].id
   privacy        = "closed"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_team_membership" "role" {
@@ -113,11 +126,18 @@ locals {
     "${m.team}:${m.user}" => m
   }
 
+  # Groups not built from team roles list their members in groups.yaml.
+  group_members = {
+    for m in flatten([for g in local.groups : [for u in lookup(g, "members", []) : { team = g.name, user = u }]]) :
+    "${m.team}:${m.user}" => m
+  }
+
   # Everyone named anywhere in the manifest, except owners.
   org_members = toset([
-    for u in distinct(flatten([
-      for t in local.team_files : concat(lookup(t, "members", []), lookup(t, "sentinels", []), lookup(t, "managers", []))
-    ])) : u if !contains(local.org_admins, u)
+    for u in distinct(flatten(concat(
+      [for t in local.team_files : concat(lookup(t, "members", []), lookup(t, "sentinels", []), lookup(t, "managers", []))],
+      [for g in local.groups : lookup(g, "members", [])],
+    ))) : u if !contains(local.org_admins, u)
   ])
 }
 
@@ -126,6 +146,21 @@ resource "github_membership" "member" {
 
   username = each.key
   role     = "member"
+}
+
+resource "github_team_membership" "group" {
+  for_each = local.group_members
+
+  team_id  = github_team.group[each.value.team].id
+  username = each.value.user
+  role     = "member"
+
+  depends_on = [github_membership.member]
+
+  # GitHub makes org owners maintainers of every team they join.
+  lifecycle {
+    ignore_changes = [role]
+  }
 }
 
 resource "github_team_membership" "team" {
