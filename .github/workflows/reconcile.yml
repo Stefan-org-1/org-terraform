@@ -76,17 +76,15 @@ jobs:
           unzip -q "terraform_${TF_VERSION}_linux_amd64.zip" -d "$RUNNER_TEMP/bin"
           echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
 
-      # Read-only: planning must never be able to change the org.
+      # Full permissions, not read-only: GitHub hides some settings from callers who cannot change
+      # them (repo merge settings, ruleset bypass lists), and a read-only plan would see them as
+      # missing and plan to restore them on every run. Only reviewed code on main can run this job.
       - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         id: app
         with:
           client-id: ${{ vars.ORG_ADMIN_CLIENT_ID }}
           private-key: ${{ secrets.ORG_ADMIN_APP_KEY }}
           owner: ${{ github.repository_owner }}
-          permission-administration: read
-          permission-environments: read
-          permission-members: read
-          permission-organization-administration: read
 
       - name: Plan
         working-directory: org-terraform

@@ -8,12 +8,12 @@ Removing a repo from the manifest archives it; nothing is deleted.
 
 The `reconcile` workflow runs every hour, on pushes here, and on demand (**Actions → reconcile → Run workflow**). It does not run on merges in `org-manifest` or `org-policy`, so nothing there needs a secret. Run it by hand after merging there, or wait for the hour.
 
-1. **Plan** (environment `plan`, read-only App token): checks out the latest `main` of all three repos, plans, and writes a summary to the run: changes by kind, destroys and replaces first and flagged, and links to what was merged in each repo since the last apply.
+1. **Plan** (environment `plan`): checks out the latest `main` of all three repos, plans, and writes a summary to the run: changes by kind, destroys and replaces first and flagged, and links to what was merged in each repo since the last apply.
 2. **Apply** (environment `apply`): waits for a `team-platform` member to approve it with **Review deployments**, then applies exactly the saved plan, from the same commits. If the state changed since, Terraform refuses the stale plan and the next run plans again.
 
 Only one run is in flight at a time (concurrency group `terraform`), and HCP Terraform locks the state. A plan with no resource changes skips the apply.
 
-The `org-admin` App holds the rights. Its key is only in the `plan` and `apply` environments, which accept runs from `main` only.
+The `org-admin` App holds the rights. Its key is only in the `plan` and `apply` environments, which accept runs from `main` only. The plan uses a full token too: GitHub hides repo merge settings and ruleset bypass lists from callers who cannot change them, so a read-only plan would plan to restore them every time.
 
 ## Run locally
 
