@@ -11,6 +11,13 @@ resource "github_repository_environment" "terraform_plan" {
   }
 }
 
+# A reviewer team must have access to the repo, or GitHub silently drops it from the environment.
+resource "github_team_repository" "org_approvers" {
+  team_id    = github_team.group["group-org-approvers"].id
+  repository = github_repository.repo["org-terraform"].name
+  permission = "pull"
+}
+
 resource "github_repository_environment" "terraform_apply" {
   repository  = github_repository.repo["org-terraform"].name
   environment = "apply"
@@ -23,6 +30,8 @@ resource "github_repository_environment" "terraform_apply" {
   reviewers {
     teams = [github_team.group["group-org-approvers"].id]
   }
+
+  depends_on = [github_team_repository.org_approvers]
 
   deployment_branch_policy {
     protected_branches     = false
