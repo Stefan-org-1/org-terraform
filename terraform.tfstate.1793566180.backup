@@ -1,0 +1,1920 @@
+{
+  "version": 4,
+  "terraform_version": "1.17.1",
+  "serial": 67,
+  "lineage": "66e432e3-5a58-8a5e-b989-5638baee0985",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "github_actions_organization_permissions",
+      "name": "org",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allowed_actions": "selected",
+            "allowed_actions_config": [
+              {
+                "github_owned_allowed": true,
+                "patterns_allowed": [],
+                "verified_allowed": false
+              }
+            ],
+            "enabled_repositories": "all",
+            "enabled_repositories_config": [],
+            "id": "Stefan-org-1",
+            "sha_pinning_required": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_membership",
+      "name": "member",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "wendellliam",
+          "schema_version": 0,
+          "attributes": {
+            "downgrade_on_destroy": false,
+            "etag": "W/\"d63c33f0628475e34615dc77769c24f5a4b752027f1a5f64ddd02dcdc28c9e67\"",
+            "id": "Stefan-org-1:wendellliam",
+            "role": "member",
+            "username": "wendellliam"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_repository",
+      "name": "repo",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": ".github",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_forking": true,
+            "allow_merge_commit": true,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": false,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": null,
+            "default_branch": "main",
+            "delete_branch_on_merge": false,
+            "description": "Org front page and system overview",
+            "etag": "W/\"5bc48eb97d37009199ca2339357e5f09ea43e385603b238b587d31b2558d4b46\"",
+            "fork": "false",
+            "full_name": "Stefan-org-1/.github",
+            "git_clone_url": "git://github.com/Stefan-org-1/.github.git",
+            "gitignore_template": null,
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_projects": false,
+            "has_wiki": false,
+            "homepage_url": "",
+            "html_url": "https://github.com/Stefan-org-1/.github",
+            "http_clone_url": "https://github.com/Stefan-org-1/.github.git",
+            "id": ".github",
+            "ignore_vulnerability_alerts_during_read": false,
+            "is_template": false,
+            "license_template": null,
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": ".github",
+            "node_id": "R_kgDOVfRjmA",
+            "pages": [],
+            "primary_language": "",
+            "private": false,
+            "repo_id": 1442079640,
+            "security_and_analysis": [
+              {
+                "advanced_security": [],
+                "code_security": [],
+                "secret_scanning": [
+                  {
+                    "status": "disabled"
+                  }
+                ],
+                "secret_scanning_ai_detection": [],
+                "secret_scanning_non_provider_patterns": [],
+                "secret_scanning_push_protection": [
+                  {
+                    "status": "disabled"
+                  }
+                ]
+              }
+            ],
+            "source_owner": "",
+            "source_repo": "",
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": "git@github.com:Stefan-org-1/.github.git",
+            "svn_url": "https://github.com/Stefan-org-1/.github",
+            "template": [],
+            "topics": [],
+            "visibility": "public",
+            "vulnerability_alerts": true,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "change-requests",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_forking": true,
+            "allow_merge_commit": true,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": false,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": null,
+            "default_branch": "main",
+            "delete_branch_on_merge": false,
+            "description": "Deploy change requests: version, environments, window and approvers",
+            "etag": "W/\"b6722b3dfff48e993b16bb0dccb1ec6723ae967eae3a4a346a8d27e04f0d8be2\"",
+            "fork": "false",
+            "full_name": "Stefan-org-1/change-requests",
+            "git_clone_url": "git://github.com/Stefan-org-1/change-requests.git",
+            "gitignore_template": null,
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_projects": false,
+            "has_wiki": false,
+            "homepage_url": "",
+            "html_url": "https://github.com/Stefan-org-1/change-requests",
+            "http_clone_url": "https://github.com/Stefan-org-1/change-requests.git",
+            "id": "change-requests",
+            "ignore_vulnerability_alerts_during_read": false,
+            "is_template": false,
+            "license_template": null,
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": "change-requests",
+            "node_id": "R_kgDOVfPJHg",
+            "pages": [],
+            "primary_language": "Python",
+            "private": false,
+            "repo_id": 1442040094,
+            "security_and_analysis": [
+              {
+                "advanced_security": [],
+                "code_security": [],
+                "secret_scanning": [
+                  {
+                    "status": "disabled"
+                  }
+                ],
+                "secret_scanning_ai_detection": [],
+                "secret_scanning_non_provider_patterns": [],
+                "secret_scanning_push_protection": [
+                  {
+                    "status": "disabled"
+                  }
+                ]
+              }
+            ],
+            "source_owner": "",
+            "source_repo": "",
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": "git@github.com:Stefan-org-1/change-requests.git",
+            "svn_url": "https://github.com/Stefan-org-1/change-requests",
+            "template": [],
+            "topics": [],
+            "visibility": "public",
+            "vulnerability_alerts": true,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "ci-templates",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_forking": true,
+            "allow_merge_commit": true,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": false,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": false,
+            "default_branch": "main",
+            "delete_branch_on_merge": false,
+            "description": "Reusable workflows called by every app repo",
+            "etag": "W/\"83d67b8a5b462c9c45078a717c4d483e9cc2a8659566893a9f5e24881c1e244b\"",
+            "fork": "false",
+            "full_name": "Stefan-org-1/ci-templates",
+            "git_clone_url": "git://github.com/Stefan-org-1/ci-templates.git",
+            "gitignore_template": null,
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_projects": false,
+            "has_wiki": false,
+            "homepage_url": "",
+            "html_url": "https://github.com/Stefan-org-1/ci-templates",
+            "http_clone_url": "https://github.com/Stefan-org-1/ci-templates.git",
+            "id": "ci-templates",
+            "ignore_vulnerability_alerts_during_read": false,
+            "is_template": false,
+            "license_template": null,
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": "ci-templates",
+            "node_id": "R_kgDOVclCSg",
+            "pages": [],
+            "primary_language": "",
+            "private": false,
+            "repo_id": 1439253066,
+            "security_and_analysis": [
+              {
+                "advanced_security": [],
+                "code_security": [],
+                "secret_scanning": [
+                  {
+                    "status": "disabled"
+                  }
+                ],
+                "secret_scanning_ai_detection": [],
+                "secret_scanning_non_provider_patterns": [],
+                "secret_scanning_push_protection": [
+                  {
+                    "status": "disabled"
+                  }
+                ]
+              }
+            ],
+            "source_owner": "",
+            "source_repo": "",
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": "git@github.com:Stefan-org-1/ci-templates.git",
+            "svn_url": "https://github.com/Stefan-org-1/ci-templates",
+            "template": [],
+            "topics": [],
+            "visibility": "public",
+            "vulnerability_alerts": true,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "org-manifest",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_forking": true,
+            "allow_merge_commit": true,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": false,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": null,
+            "default_branch": "main",
+            "delete_branch_on_merge": false,
+            "description": "Manifest of approved repos",
+            "etag": "W/\"b3149ac857543fba009483ac9b7ce9b8d66193c8bf6064aa0ad9198d841e609a\"",
+            "fork": "false",
+            "full_name": "Stefan-org-1/org-config",
+            "git_clone_url": "git://github.com/Stefan-org-1/org-config.git",
+            "gitignore_template": null,
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_projects": false,
+            "has_wiki": false,
+            "homepage_url": "",
+            "html_url": "https://github.com/Stefan-org-1/org-config",
+            "http_clone_url": "https://github.com/Stefan-org-1/org-config.git",
+            "id": "org-config",
+            "ignore_vulnerability_alerts_during_read": false,
+            "is_template": false,
+            "license_template": null,
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": "org-config",
+            "node_id": "R_kgDOVdHxvA",
+            "pages": [],
+            "primary_language": "HCL",
+            "private": false,
+            "repo_id": 1439822268,
+            "security_and_analysis": [
+              {
+                "advanced_security": [],
+                "code_security": [],
+                "secret_scanning": [
+                  {
+                    "status": "disabled"
+                  }
+                ],
+                "secret_scanning_ai_detection": [],
+                "secret_scanning_non_provider_patterns": [],
+                "secret_scanning_push_protection": [
+                  {
+                    "status": "disabled"
+                  }
+                ]
+              }
+            ],
+            "source_owner": "",
+            "source_repo": "",
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": "git@github.com:Stefan-org-1/org-config.git",
+            "svn_url": "https://github.com/Stefan-org-1/org-config",
+            "template": [],
+            "topics": [],
+            "visibility": "public",
+            "vulnerability_alerts": true,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "payments-web",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_forking": true,
+            "allow_merge_commit": true,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": false,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": false,
+            "default_branch": "main",
+            "delete_branch_on_merge": false,
+            "description": "Payments frontend",
+            "etag": "W/\"3a1872636936d74681afe0280a1cc26f0d83831a5c1513c8883b9c8cbcfbff38\"",
+            "fork": "false",
+            "full_name": "Stefan-org-1/payments-web",
+            "git_clone_url": "git://github.com/Stefan-org-1/payments-web.git",
+            "gitignore_template": null,
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_projects": false,
+            "has_wiki": false,
+            "homepage_url": "",
+            "html_url": "https://github.com/Stefan-org-1/payments-web",
+            "http_clone_url": "https://github.com/Stefan-org-1/payments-web.git",
+            "id": "payments-web",
+            "ignore_vulnerability_alerts_during_read": false,
+            "is_template": false,
+            "license_template": null,
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": "payments-web",
+            "node_id": "R_kgDOVclCgQ",
+            "pages": [],
+            "primary_language": "JavaScript",
+            "private": false,
+            "repo_id": 1439253121,
+            "security_and_analysis": [
+              {
+                "advanced_security": [],
+                "code_security": [],
+                "secret_scanning": [
+                  {
+                    "status": "disabled"
+                  }
+                ],
+                "secret_scanning_ai_detection": [],
+                "secret_scanning_non_provider_patterns": [],
+                "secret_scanning_push_protection": [
+                  {
+                    "status": "disabled"
+                  }
+                ]
+              }
+            ],
+            "source_owner": "",
+            "source_repo": "",
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": "git@github.com:Stefan-org-1/payments-web.git",
+            "svn_url": "https://github.com/Stefan-org-1/payments-web",
+            "template": [],
+            "topics": [],
+            "visibility": "public",
+            "vulnerability_alerts": true,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "platform-gate",
+          "schema_version": 1,
+          "attributes": {
+            "allow_auto_merge": false,
+            "allow_forking": true,
+            "allow_merge_commit": true,
+            "allow_rebase_merge": true,
+            "allow_squash_merge": true,
+            "allow_update_branch": false,
+            "archive_on_destroy": true,
+            "archived": false,
+            "auto_init": false,
+            "default_branch": "main",
+            "delete_branch_on_merge": false,
+            "description": "Posts merge checks and answers deploys as the platform App",
+            "etag": "W/\"3349687853b81ad3bf04de6ab59c360dbc546505036236d1b511201d3822ebae\"",
+            "fork": "false",
+            "full_name": "Stefan-org-1/platform-gate",
+            "git_clone_url": "git://github.com/Stefan-org-1/platform-gate.git",
+            "gitignore_template": null,
+            "has_discussions": false,
+            "has_downloads": false,
+            "has_issues": true,
+            "has_projects": false,
+            "has_wiki": false,
+            "homepage_url": "",
+            "html_url": "https://github.com/Stefan-org-1/platform-gate",
+            "http_clone_url": "https://github.com/Stefan-org-1/platform-gate.git",
+            "id": "platform-gate",
+            "ignore_vulnerability_alerts_during_read": false,
+            "is_template": false,
+            "license_template": null,
+            "merge_commit_message": "PR_TITLE",
+            "merge_commit_title": "MERGE_MESSAGE",
+            "name": "platform-gate",
+            "node_id": "R_kgDOVdIvTw",
+            "pages": [],
+            "primary_language": "Python",
+            "private": false,
+            "repo_id": 1439838031,
+            "security_and_analysis": [
+              {
+                "advanced_security": [],
+                "code_security": [],
+                "secret_scanning": [
+                  {
+                    "status": "disabled"
+                  }
+                ],
+                "secret_scanning_ai_detection": [],
+                "secret_scanning_non_provider_patterns": [],
+                "secret_scanning_push_protection": [
+                  {
+                    "status": "disabled"
+                  }
+                ]
+              }
+            ],
+            "source_owner": "",
+            "source_repo": "",
+            "squash_merge_commit_message": "COMMIT_MESSAGES",
+            "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+            "ssh_clone_url": "git@github.com:Stefan-org-1/platform-gate.git",
+            "svn_url": "https://github.com/Stefan-org-1/platform-gate",
+            "template": [],
+            "topics": [],
+            "visibility": "public",
+            "vulnerability_alerts": true,
+            "web_commit_signoff_required": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_repository_environment",
+      "name": "env",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "payments-web:prod",
+          "schema_version": 1,
+          "attributes": {
+            "can_admins_bypass": true,
+            "deployment_branch_policy": [],
+            "environment": "prod",
+            "id": "payments-web:prod",
+            "prevent_self_review": null,
+            "repository": "payments-web",
+            "repository_id": 1439253121,
+            "reviewers": [],
+            "wait_timer": 0
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "payments-web:staging",
+          "schema_version": 1,
+          "attributes": {
+            "can_admins_bypass": true,
+            "deployment_branch_policy": [],
+            "environment": "staging",
+            "id": "payments-web:staging",
+            "prevent_self_review": false,
+            "repository": "payments-web",
+            "repository_id": 1439253121,
+            "reviewers": [],
+            "wait_timer": 0
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "payments-web:test",
+          "schema_version": 1,
+          "attributes": {
+            "can_admins_bypass": true,
+            "deployment_branch_policy": [],
+            "environment": "test",
+            "id": "payments-web:test",
+            "prevent_self_review": false,
+            "repository": "payments-web",
+            "repository_id": 1439253121,
+            "reviewers": [],
+            "wait_timer": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_repository_ruleset",
+      "name": "baseline",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": ".github",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "~DEFAULT_BRANCH"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"8b922dcaaccbac4ed9aeb6b0f84aed6705678336f4f8f0857c82a1fece84636e\"",
+            "id": "26319723",
+            "name": "platform-baseline",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V9GOYzgGRm2s",
+            "repository": ".github",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": true,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [
+                  {
+                    "do_not_enforce_on_create": false,
+                    "required_check": [
+                      {
+                        "context": "policy",
+                        "integration_id": 5543165
+                      }
+                    ],
+                    "strict_required_status_checks_policy": false
+                  }
+                ],
+                "tag_name_pattern": [],
+                "update": false,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26319723,
+            "target": "branch"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "change-requests",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "~DEFAULT_BRANCH"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"fc742ca60e175192ca7a9cf260b2eecb6e42f48cbab269ab467f494c9796ca12\"",
+            "id": "26318265",
+            "name": "platform-baseline",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V88kezgGRlbk",
+            "repository": "change-requests",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": true,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [
+                  {
+                    "do_not_enforce_on_create": false,
+                    "required_check": [
+                      {
+                        "context": "policy",
+                        "integration_id": 5543165
+                      }
+                    ],
+                    "strict_required_status_checks_policy": false
+                  }
+                ],
+                "tag_name_pattern": [],
+                "update": false,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26318265,
+            "target": "branch"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "ci-templates",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "~DEFAULT_BRANCH"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "W/\"14a9821d7d8b51d7ddab3bac13622c809c07134e2bb2ce5a622d2b4e80da9fd8\"",
+            "id": "26215968",
+            "name": "platform-baseline",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5VyUJKzgGQBiA",
+            "repository": "ci-templates",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": true,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [
+                  {
+                    "do_not_enforce_on_create": false,
+                    "required_check": [
+                      {
+                        "context": "policy",
+                        "integration_id": 5543165
+                      }
+                    ],
+                    "strict_required_status_checks_policy": false
+                  }
+                ],
+                "tag_name_pattern": [],
+                "update": false,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26215968,
+            "target": "branch"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "org-manifest",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "~DEFAULT_BRANCH"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "W/\"24ba3aa5fad7b86ceeea8e55f3716deea2c324f3a1d45cfd6cc061a87eef8255\"",
+            "id": "26215964",
+            "name": "platform-baseline",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V0fG8zgGQBhw",
+            "repository": "org-config",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": true,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [
+                  {
+                    "do_not_enforce_on_create": false,
+                    "required_check": [
+                      {
+                        "context": "policy",
+                        "integration_id": 5543165
+                      }
+                    ],
+                    "strict_required_status_checks_policy": false
+                  }
+                ],
+                "tag_name_pattern": [],
+                "update": false,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26215964,
+            "target": "branch"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "payments-web",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "~DEFAULT_BRANCH"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "W/\"ba23cadf34da5b2c1b0f81f6291ff6fc08c094aab9f5e9ffce5cc79ec14f1e6e\"",
+            "id": "26215962",
+            "name": "platform-baseline",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5VyUKBzgGQBho",
+            "repository": "payments-web",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": true,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [
+                  {
+                    "do_not_enforce_on_create": false,
+                    "required_check": [
+                      {
+                        "context": "policy",
+                        "integration_id": 5543165
+                      }
+                    ],
+                    "strict_required_status_checks_policy": false
+                  }
+                ],
+                "tag_name_pattern": [],
+                "update": false,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26215962,
+            "target": "branch"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "platform-gate",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "~DEFAULT_BRANCH"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "W/\"0d04554a56fde72ffbfd0de485b0afa0174f1eafb98ebf0125ef133e9451da53\"",
+            "id": "26215954",
+            "name": "platform-baseline",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V0i9PzgGQBhI",
+            "repository": "platform-gate",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": true,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [
+                  {
+                    "do_not_enforce_on_create": false,
+                    "required_check": [
+                      {
+                        "context": "policy",
+                        "integration_id": 5543165
+                      }
+                    ],
+                    "strict_required_status_checks_policy": false
+                  }
+                ],
+                "tag_name_pattern": [],
+                "update": false,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26215954,
+            "target": "branch"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_repository_ruleset",
+      "name": "release_tags",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": ".github",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "refs/tags/*.*.*"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"82f9d7d35012f816c3619e1f4f01cee0c6af17ffc45949ff9be2aa550804c39e\"",
+            "id": "26323460",
+            "name": "release-tags",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V9GOYzgGRqgQ",
+            "repository": ".github",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": false,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [],
+                "tag_name_pattern": [],
+                "update": true,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26323460,
+            "target": "tag"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "change-requests",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "refs/tags/*.*.*"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"e8765b77dcf383e06d2e6543f0ddae5894df526bb9d3492c495e92ba4e2ef78c\"",
+            "id": "26323459",
+            "name": "release-tags",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V88kezgGRqgM",
+            "repository": "change-requests",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": false,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [],
+                "tag_name_pattern": [],
+                "update": true,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26323459,
+            "target": "tag"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "ci-templates",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "refs/tags/*.*.*"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"5fda4e6fae388f5781e783f9488b5ff4de02a66822f4f83bbe667a47487e75a4\"",
+            "id": "26323462",
+            "name": "release-tags",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5VyUJKzgGRqgY",
+            "repository": "ci-templates",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": false,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [],
+                "tag_name_pattern": [],
+                "update": true,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26323462,
+            "target": "tag"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "org-manifest",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "refs/tags/*.*.*"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"f210699c101ceaece6629a5129b084749e1f1691e0766d12bbc96f25b724d121\"",
+            "id": "26323469",
+            "name": "release-tags",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V0fG8zgGRqg0",
+            "repository": "org-config",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": false,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [],
+                "tag_name_pattern": [],
+                "update": true,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26323469,
+            "target": "tag"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "payments-web",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "refs/tags/*.*.*"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"88666b6d7913e6970464d2f9f29f0b49c5e9cb29addfeea866ab16dd1a3deffa\"",
+            "id": "26323467",
+            "name": "release-tags",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5VyUKBzgGRqgs",
+            "repository": "payments-web",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": false,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [],
+                "tag_name_pattern": [],
+                "update": true,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26323467,
+            "target": "tag"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        },
+        {
+          "index_key": "platform-gate",
+          "schema_version": 1,
+          "attributes": {
+            "bypass_actors": [
+              {
+                "actor_id": 0,
+                "actor_type": "OrganizationAdmin",
+                "bypass_mode": "always"
+              }
+            ],
+            "conditions": [
+              {
+                "ref_name": [
+                  {
+                    "exclude": [],
+                    "include": [
+                      "refs/tags/*.*.*"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "enforcement": "active",
+            "etag": "\"68e312a027241af74dc1d4f185a428f4ce074a083f08a01c42af2c391ceb9cd8\"",
+            "id": "26323463",
+            "name": "release-tags",
+            "node_id": "RRS_lACqUmVwb3NpdG9yec5V0i9PzgGRqgc",
+            "repository": "platform-gate",
+            "rules": [
+              {
+                "branch_name_pattern": [],
+                "commit_author_email_pattern": [],
+                "commit_message_pattern": [],
+                "committer_email_pattern": [],
+                "copilot_code_review": [],
+                "creation": false,
+                "deletion": true,
+                "file_extension_restriction": [],
+                "file_path_restriction": [],
+                "max_file_path_length": [],
+                "max_file_size": [],
+                "merge_queue": [],
+                "non_fast_forward": false,
+                "pull_request": [],
+                "required_code_scanning": [],
+                "required_deployments": [],
+                "required_linear_history": false,
+                "required_signatures": false,
+                "required_status_checks": [],
+                "tag_name_pattern": [],
+                "update": true,
+                "update_allows_fetch_and_merge": false
+              }
+            ],
+            "ruleset_id": 26323463,
+            "target": "tag"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_team",
+      "name": "group",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "group-managers",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "Engineering managers",
+            "etag": "W/\"a31e0f6c0d643488aed049a3ec75a173da0ce605da12c22d99c4c40477d2548a\"",
+            "id": "20425560",
+            "ldap_dn": null,
+            "members_count": 2,
+            "name": "group-managers",
+            "node_id": "T_kwDOFN5GI84BN6tY",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "",
+            "parent_team_read_id": "",
+            "parent_team_read_slug": "",
+            "privacy": "closed",
+            "slug": "group-managers"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "group-sentinels",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "Senior engineers trusted to approve across teams",
+            "etag": "W/\"caa5a74295b0a278da1834e40cf376c7877cae394f0a8899081aeef15518272c\"",
+            "id": "20425494",
+            "ldap_dn": null,
+            "members_count": 1,
+            "name": "group-sentinels",
+            "node_id": "T_kwDOFN5GI84BN6sW",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "",
+            "parent_team_read_id": "",
+            "parent_team_read_slug": "",
+            "privacy": "closed",
+            "slug": "group-sentinels"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_team",
+      "name": "role",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "managers-payments",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "",
+            "etag": "W/\"440cbaa3378453ce4842543c5905d10b2a8210821c1f241127daf4b64f35ccf1\"",
+            "id": "20436421",
+            "ldap_dn": null,
+            "members_count": 1,
+            "name": "managers-payments",
+            "node_id": "T_kwDOFN5GI84BN9XF",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "20425560",
+            "parent_team_read_id": "20425560",
+            "parent_team_read_slug": "group-managers",
+            "privacy": "closed",
+            "slug": "managers-payments"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_team.group"
+          ]
+        },
+        {
+          "index_key": "managers-platform",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "",
+            "etag": "W/\"e81f57b6e76a1e5d6d704889b8d562758075730bae51745b6d70ff865a2186be\"",
+            "id": "20436424",
+            "ldap_dn": null,
+            "members_count": 0,
+            "name": "managers-platform",
+            "node_id": "T_kwDOFN5GI84BN9XI",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "20425560",
+            "parent_team_read_id": "20425560",
+            "parent_team_read_slug": "group-managers",
+            "privacy": "closed",
+            "slug": "managers-platform"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_team.group"
+          ]
+        },
+        {
+          "index_key": "sentinels-payments",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "",
+            "etag": "W/\"7e80392da06ec81da964cba11d1a4e9dca761486624310038a9ced8a57861b9b\"",
+            "id": "20436420",
+            "ldap_dn": null,
+            "members_count": 1,
+            "name": "sentinels-payments",
+            "node_id": "T_kwDOFN5GI84BN9XE",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "20425494",
+            "parent_team_read_id": "20425494",
+            "parent_team_read_slug": "group-sentinels",
+            "privacy": "closed",
+            "slug": "sentinels-payments"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_team.group"
+          ]
+        },
+        {
+          "index_key": "sentinels-platform",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "",
+            "etag": "W/\"63532bee8259d51e1cd87c400fe2041cb33b23bfd0ee5f57f957311f5367d518\"",
+            "id": "20436423",
+            "ldap_dn": null,
+            "members_count": 0,
+            "name": "sentinels-platform",
+            "node_id": "T_kwDOFN5GI84BN9XH",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "20425494",
+            "parent_team_read_id": "20425494",
+            "parent_team_read_slug": "group-sentinels",
+            "privacy": "closed",
+            "slug": "sentinels-platform"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_team.group"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_team",
+      "name": "team",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "team-payments",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "",
+            "etag": "W/\"0e6c1dd9675ec110a5cb2ee8f80c4b6109b821dce29d752cde9d918d0da36b7c\"",
+            "id": "20425490",
+            "ldap_dn": null,
+            "members_count": 2,
+            "name": "team-payments",
+            "node_id": "T_kwDOFN5GI84BN6sS",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "",
+            "parent_team_read_id": "",
+            "parent_team_read_slug": "",
+            "privacy": "closed",
+            "slug": "team-payments"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjAifQ=="
+        },
+        {
+          "index_key": "team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "create_default_maintainer": false,
+            "description": "",
+            "etag": "W/\"3c7bd380177b9852f2316ea62987f94dec005cad0f4cf4ff01a02495985ab8f4\"",
+            "id": "20425489",
+            "ldap_dn": null,
+            "members_count": 1,
+            "name": "team-platform",
+            "node_id": "T_kwDOFN5GI84BN6sR",
+            "notification_setting": "notifications_enabled",
+            "parent_team_id": "",
+            "parent_team_read_id": "",
+            "parent_team_read_slug": "",
+            "privacy": "closed",
+            "slug": "team-platform"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjAifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_team_membership",
+      "name": "role",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "managers-payments:wendellliam",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"872ffc13d1ad6e7edf591a527a679b5eeda1c559a460f547bdb4385d433f77fa\"",
+            "id": "20436421:wendellliam",
+            "role": "member",
+            "team_id": "20436421",
+            "username": "wendellliam"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_membership.member",
+            "github_team.group",
+            "github_team.role"
+          ]
+        },
+        {
+          "index_key": "sentinels-payments:StefanPanait",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"05e688fb70794b503b57bbeb6d087d49c45e5bbccc6fc49adb0f890246ed1152\"",
+            "id": "20436420:StefanPanait",
+            "role": "maintainer",
+            "team_id": "20436420",
+            "username": "StefanPanait"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_membership.member",
+            "github_team.group",
+            "github_team.role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_team_membership",
+      "name": "team",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": "team-payments:StefanPanait",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"998d86e77d06dc7be35ff8300e9ae471c87c2cf11b8e58a6ff1483d7785393b0\"",
+            "id": "20425490:StefanPanait",
+            "role": "maintainer",
+            "team_id": "20425490",
+            "username": "StefanPanait"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_membership.member",
+            "github_team.team"
+          ]
+        },
+        {
+          "index_key": "team-payments:wendellliam",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"ab97ecfc8749ebe845449a4919782af3c712fb31a03993d6a8fd56dc82a69c0b\"",
+            "id": "20425490:wendellliam",
+            "role": "member",
+            "team_id": "20425490",
+            "username": "wendellliam"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "github_membership.member",
+            "github_team.team"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "github_team_repository",
+      "name": "access",
+      "provider": "provider[\"registry.terraform.io/integrations/github\"]",
+      "instances": [
+        {
+          "index_key": ".github:team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"ce23fd1de8f8840e7c5099ca7db8753e43f4db3d0be94d27eb11cc05e38446ac\"",
+            "id": "20425489:.github",
+            "permission": "maintain",
+            "repository": ".github",
+            "team_id": "20425489"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "change-requests:group-managers",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"21f7f3b334c276a9c5ef01205176eb58bea5ef7fe9b4d03a230f964caaa8f21d\"",
+            "id": "20425560:change-requests",
+            "permission": "push",
+            "repository": "change-requests",
+            "team_id": "20425560"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "change-requests:group-sentinels",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"21f7f3b334c276a9c5ef01205176eb58bea5ef7fe9b4d03a230f964caaa8f21d\"",
+            "id": "20425494:change-requests",
+            "permission": "push",
+            "repository": "change-requests",
+            "team_id": "20425494"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "change-requests:team-payments",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"21f7f3b334c276a9c5ef01205176eb58bea5ef7fe9b4d03a230f964caaa8f21d\"",
+            "id": "20425490:change-requests",
+            "permission": "push",
+            "repository": "change-requests",
+            "team_id": "20425490"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "change-requests:team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"ca24c9bdb5597f09f5ef76da4f27dd6e28dc29764da46089011d4597c065136f\"",
+            "id": "20425489:change-requests",
+            "permission": "maintain",
+            "repository": "change-requests",
+            "team_id": "20425489"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "ci-templates:team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"90933e5137a9ec9f33fdf811ac87f4a5a27ba606906e7a185b7e06bac0db5bfb\"",
+            "id": "20425489:ci-templates",
+            "permission": "maintain",
+            "repository": "ci-templates",
+            "team_id": "20425489"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "org-config:team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"69c700c695f780624b41fbbfa170d2f3a63211a2c997e506cdae312d5c1d4240\"",
+            "id": "20425489:org-config",
+            "permission": "maintain",
+            "repository": "org-config",
+            "team_id": "20425489"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "org-manifest:group-managers",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"04712e63d7235f17ab03c7bf976cadc6d628e7e00aa38105a3daaa45a4efca0a\"",
+            "id": "20425560:org-config",
+            "permission": "push",
+            "repository": "org-config",
+            "team_id": "20425560"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "org-manifest:group-sentinels",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"04712e63d7235f17ab03c7bf976cadc6d628e7e00aa38105a3daaa45a4efca0a\"",
+            "id": "20425494:org-config",
+            "permission": "push",
+            "repository": "org-config",
+            "team_id": "20425494"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "org-manifest:team-payments",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"04712e63d7235f17ab03c7bf976cadc6d628e7e00aa38105a3daaa45a4efca0a\"",
+            "id": "20425490:org-config",
+            "permission": "push",
+            "repository": "org-config",
+            "team_id": "20425490"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "payments-web:group-sentinels",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"5f3b7e5116149a751b4925e3e1bc17e003a1b93c40c9a4ddef13b9a4b3f994ab\"",
+            "id": "20425494:payments-web",
+            "permission": "push",
+            "repository": "payments-web",
+            "team_id": "20425494"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "payments-web:team-payments",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"5f3b7e5116149a751b4925e3e1bc17e003a1b93c40c9a4ddef13b9a4b3f994ab\"",
+            "id": "20425490:payments-web",
+            "permission": "push",
+            "repository": "payments-web",
+            "team_id": "20425490"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "payments-web:team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"0798a76a8205fa0396c33ef14f6d9767621b620b49751a33d26b80c51633b18f\"",
+            "id": "20425489:payments-web",
+            "permission": "maintain",
+            "repository": "payments-web",
+            "team_id": "20425489"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        },
+        {
+          "index_key": "platform-gate:team-platform",
+          "schema_version": 0,
+          "attributes": {
+            "etag": "W/\"aa8d85924ce2ef346b2ae992a68ac52420b581aa7b108508e40d0be0e920123a\"",
+            "id": "20425489:platform-gate",
+            "permission": "maintain",
+            "repository": "platform-gate",
+            "team_id": "20425489"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
