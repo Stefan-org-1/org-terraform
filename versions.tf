@@ -1,6 +1,14 @@
 terraform {
   required_version = ">= 1.7"
 
+  # State is stored and locked in HCP Terraform. Runs stay local or in GitHub Actions.
+  cloud {
+    organization = "stefan-terraform-test"
+    workspaces {
+      name = "test-terraform"
+    }
+  }
+
   required_providers {
     github = {
       source  = "integrations/github"

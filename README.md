@@ -14,6 +14,6 @@ terraform plan
 terraform apply
 ```
 
-It signs in with `GITHUB_TOKEN`, or the `gh` CLI login. State is local for now (`terraform.tfstate`, gitignored).
+It signs in to GitHub with `GITHUB_TOKEN`, or the `gh` CLI login. State is stored and locked in HCP Terraform (organization `stefan-terraform-test`, workspace `test-terraform`); run `terraform login` once to reach it.
 
 Two things are set by hand, because the provider has no resource for them: the gate App as a protection rule on each environment, and the App itself.
