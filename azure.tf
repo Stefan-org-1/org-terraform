@@ -2,13 +2,28 @@
 # Azure trusts a token only if its subject names the repo, the environment and the central
 # deploy template, so a job the team writes into its own workflow is refused.
 
-# Changes the subject of every OIDC token in the org, from
+# The subject of the OIDC tokens GitHub issues, from
 #   repo:ORG/REPO:environment:ENV
 # to
 #   repo:ORG/REPO:environment:ENV:job_workflow_ref:ORG/ci-templates/.github/workflows/deploy.yml@refs/tags/deploy-v2
-# Every Azure trust rule must use the new form.
+# Repos created after 2026-07-15 also carry immutable IDs: repo:ORG@<owner id>/REPO@<repo id>.
+# Every Azure trust rule must use this form.
+locals {
+  oidc_subject_claims = ["repo", "context", "job_workflow_ref"]
+}
+
 resource "github_actions_organization_oidc_subject_claim_customization_template" "org" {
-  include_claim_keys = ["repo", "context", "job_workflow_ref"]
+  include_claim_keys = local.oidc_subject_claims
+}
+
+# A repo uses its own setting, and the default ignores the org template, so set it per repo too.
+# Seen on payments-web: the org template was set, and its tokens still had the default subject.
+resource "github_actions_repository_oidc_subject_claim_customization_template" "repo" {
+  for_each = local.active_repos
+
+  repository         = github_repository.repo[each.key].name
+  use_default        = false
+  include_claim_keys = local.oidc_subject_claims
 }
 
 # Identities created by hand in the portal for now. Moves here when the Azure side is Terraform.
