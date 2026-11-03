@@ -5,7 +5,7 @@
 # Changes the subject of every OIDC token in the org, from
 #   repo:ORG/REPO:environment:ENV
 # to
-#   repo:ORG/REPO:environment:ENV:job_workflow_ref:ORG/ci-templates/.github/workflows/deploy.yml@refs/tags/deploy-v1
+#   repo:ORG/REPO:environment:ENV:job_workflow_ref:ORG/ci-templates/.github/workflows/deploy.yml@refs/tags/deploy-v2
 # Every Azure trust rule must use the new form.
 resource "github_actions_organization_oidc_subject_claim_customization_template" "org" {
   include_claim_keys = ["repo", "context", "job_workflow_ref"]
