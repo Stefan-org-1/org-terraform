@@ -27,10 +27,10 @@ locals {
   # Not secrets: they identify, they grant nothing. The trust rule in Azure is the control.
   azure_variables = merge([
     for key, e in local.azure.environments : {
-      "${key}:AZURE_TENANT_ID"       = { env = key, value = local.azure.tenant_id }
-      "${key}:AZURE_SUBSCRIPTION_ID" = { env = key, value = local.azure.subscription_id }
-      "${key}:AZURE_CLIENT_ID"       = { env = key, value = e.client_id }
-      "${key}:AZURE_RESOURCE_GROUP"  = { env = key, value = e.resource_group }
+      "${key}:AZURE_TENANT_ID"       = { env = key, name = "AZURE_TENANT_ID", value = local.azure.tenant_id }
+      "${key}:AZURE_SUBSCRIPTION_ID" = { env = key, name = "AZURE_SUBSCRIPTION_ID", value = local.azure.subscription_id }
+      "${key}:AZURE_CLIENT_ID"       = { env = key, name = "AZURE_CLIENT_ID", value = e.client_id }
+      "${key}:AZURE_RESOURCE_GROUP"  = { env = key, name = "AZURE_RESOURCE_GROUP", value = e.resource_group }
     }
   ]...)
 }
@@ -40,6 +40,6 @@ resource "github_actions_environment_variable" "azure" {
 
   repository    = github_repository_environment.env[each.value.env].repository
   environment   = github_repository_environment.env[each.value.env].environment
-  variable_name = element(split(":", each.key), 2)
+  variable_name = each.value.name
   value         = each.value.value
 }
